@@ -60,8 +60,8 @@ We will use the index position of the array item and splice out the deleted item
 
 ```js
 // DELETE
-bookmarks.delete("/:indexArray", (req, res) => {
-  const deletedBookmark = bookmarkArray.splice(req.params.indexArray, 1);
+bookmarks.delete("/:arrayIndex", (req, res) => {
+  const deletedBookmark = bookmarkArray.splice(req.params.arrayIndex, 1);
   res.status(200).json(deletedBookmark);
 });
 ```
@@ -78,9 +78,9 @@ Let's add some error handling.
 
 ```js
 // DELETE
-bookmarks.delete("/:indexArray", (req, res) => {
+bookmarks.delete("/:arrayIndex", (req, res) => {
   if (bookmarkArray[req.params.arrayIndex]) {
-    const deletedBookMark = bookmarkArray.splice(req.params.indexArray, 1);
+    const deletedBookMark = bookmarkArray.splice(req.params.arrayIndex, 1);
     res.status(200).json(deletedBookMark);
   } else {
     res.status(404).json({ error: "Not Found" });
